@@ -1,32 +1,24 @@
 #include <iostream>
 using namespace std;
 
-class wildAnimal
+class human 
 {
     public:
 
-    void hunt()
-    {
-        cout<<"Can hunt"<<"\n";
+    human(){}
+
+    human(int age){
+        cout<<"Human is "<<age<<" year"<<(age > 1? "s ":" ")<<"old\n";
     }
-};
 
-class domesticAnimal : public wildAnimal
-{
-    public:
-
-    void hunt()
-    {
-        cout<<"Cannot hunt\n";
+    human(int age,string name){
+        cout<<name<<" is "<<age<<" year"<<(age > 1? "s ":" ")<<"old\n";
     }
 };
 
 int main()
 {
-    domesticAnimal cow;
-    cow.hunt();
-    // Although parent class contains method hunt , since even derived class also has it , method will be overridden
+    human charan(20);
 
-    cow.wildAnimal::hunt();
-    // This uses function in base class as it is called using scope resolution operator
+    human(1,"Charan");
 }
