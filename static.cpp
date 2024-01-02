@@ -23,4 +23,11 @@ int arithmetic::addNumbers(int a, int b) {
 int main() {
     cout << arithmetic::addNumbers(1, 2) << "\n";
     // Static methods do not require the creation of an object.
+
+    cout<<arithmetic::sum<<"\n";
+    // Since in addNumbers static method , the static variable sum is set to 3 , it will print 3 here
+
+    arithmetic::sum = 20;
+    cout<<arithmetic::sum<<"\n";
+    // static variable sum is changed to 20 so this will print 20
 }
