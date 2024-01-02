@@ -36,3 +36,5 @@ int main()
     cout<<"Fly? "<<(owl.fly? "True" : "False")<<"\n";
     cout<<"Run? "<<(owl.run? "True" : "False")<<"\n";
 }
+
+// In multilevel inheritance one child class is inherited by other 
