@@ -21,4 +21,5 @@ int main()
     human charan(20);
 
     human(1,"Charan");
+    // Method/Function overloading just matches the function with given parameters.
 }
