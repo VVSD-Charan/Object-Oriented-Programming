@@ -34,7 +34,7 @@ int main()
     kohli.about = "Legend";
     kohli.matches = 300;
 
-    Cricketer Rohit(kohli);
+    Cricketer Rohit = kohli;
 
     cout << "Addresses of Rohit ";
     Rohit.details();
