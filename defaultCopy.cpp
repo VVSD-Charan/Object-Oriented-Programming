@@ -1,63 +1,74 @@
 #include <iostream>
+#include <string>
+#include <cstring>  
+#include <string>
 using namespace std;
 
-class Cricketer
+class Hero
 {
-    int age;
-
-public:
-    string about;
-    int matches;
-
-    int getAge()
-    {
-        return this->age;
+    int health;
+    
+    public:
+    
+    char *name;
+    char level;
+    
+    Hero(){
+        cout<<"Constructor called\n";
+        name = new char[100];
     }
-
-    void setAge(int age)
-    {
-        this->age = age;
+    
+    Hero(int health){
+        this->health = health;
     }
-
-    void details()
-    {
-        cout << "Age " << &age << "\n";
-        cout << "About " << &about << "\n";
-        cout << "Matches " << &matches << "\n";
+    
+    Hero(int health,char level){
+        this->level = level;
+        this->health = health;
+    }
+    
+    int getHealth(){
+        return health;
+    }
+    
+    char getLevel(){
+        return level;
+    }
+    
+    void setHealth(int h){
+        health = h;
+    }
+    
+    void setLevel(char ch){
+        level = ch;
+    }
+    
+    void setName(char name[]){
+        strcpy(this->name,name);
+    }
+    
+    void print(){
+        cout<<health<<" "<<level<<" "<<name<<"\n\n";
     }
 };
 
 int main()
 {
-    Cricketer kohli;
-    kohli.setAge(35);
-    kohli.about = "Legend";
-    kohli.matches = 300;
+    Hero h1;
+    h1.setHealth(12);
+    h1.setLevel('D');
+    
+    char name[7] = "Charan";
+    h1.setName(name);
+    
+    h1.print();
+    
+    Hero h2(h1);
+    h2.print();
+    
+    h1.name[0] = 'G';
+    h1.print();
+    h2.print();
 
-    Cricketer Rohit = kohli;
-
-    cout << "Addresses of Rohit ";
-    Rohit.details();
-    cout << "\nAddresses of Kohli about ";
-    kohli.details();
-
-    cout << "Rohit age " << Rohit.getAge() << "\n";
-    cout << "Rohit is " << Rohit.about << "\n";
-    cout << "Rohit matches " << Rohit.matches << "\n";
-
-    Rohit.matches = 400;
-    cout << "Updated Rohit matches " << Rohit.matches << "\n";
-    cout << "Updated Kohli matches " << kohli.matches << "\n";
-
-    Rohit.setAge(36);
-    cout << "Updated Rohit age " << Rohit.getAge() << "\n";
-    cout << "Updated Kohli age " << kohli.getAge() << "\n";
-
-    Rohit.about[0] = 'g';
-    cout << "Updated Rohit ";
-    Rohit.details();
-    cout << "\nUpdated Kohli about ";
-    kohli.details();
-
-    return 0;
+    cout<<h2.name<<"\n";
 }
